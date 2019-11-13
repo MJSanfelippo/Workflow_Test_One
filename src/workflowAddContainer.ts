@@ -17,7 +17,7 @@ const mermaid = PLATFORM.global.mermaid;
 
 
 @autoinject()
-export class WorkflowAdd {
+export class WorkflowAddContainer {
 
   @observable private selectedLeadType: string;
 
