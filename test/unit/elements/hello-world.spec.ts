@@ -4,7 +4,7 @@ import {bootstrap} from 'aurelia-bootstrapper';
 describe('hello-world element', () => {
   let component;
 
-  afterEach(() => {
+  afterEach(() => { 
     if (component) {
       component.dispose();
       component = null;
