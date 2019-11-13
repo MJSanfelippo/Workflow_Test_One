@@ -1,9 +1,32 @@
+import { WorkflowManager as OtherWorkflowManager } from "./managers/workflowManager";
+import { singleton } from "aurelia-framework";
+
+@singleton
 export class WorkflowManager {
-  testProp: string = "hello test prop";
-  testList: string[] = ["1", "2"];
 
+  private idMap: Map<string, OtherWorkflowManager>;
 
-  test(): void {
-    console.log('yo');
+  constructor() {
+    this.idMap = new Map<string, OtherWorkflowManager>();
+  }
+
+  addToList(id: string, wfm: OtherWorkflowManager) {
+    if (id == null) {
+      throw new Error("Cannot add undefined id");
+    }
+    if (this.idMap.has(id)) {
+      throw new Error(`Cannot add duplicate id to the list: ${id}`);
+    }
+    if (wfm == null) {
+      throw new Error("Cannot add an undefined wfm");
+    }
+    this.idMap.set(id, wfm);
+  }
+
+  removeFromList(id: string) {
+    if (id == null) {
+      throw new Error("Cannot delete an undefined key");
+    }
+    this.idMap.delete(id);
   }
 }
