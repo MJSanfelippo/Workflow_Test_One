@@ -6,11 +6,10 @@ import { WorkflowManager } from './WorkflowManager';
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
     PLATFORM.moduleName('./elements/workflow-container'),
-    './WorkflowManager'
+    PLATFORM.moduleName('./WorkflowManager')
   ]);
 
   config.singleton(WorkflowManager, WorkflowManager);
-  config.container.get(WorkflowManager);
 }
 
 export { WorkflowManager };
