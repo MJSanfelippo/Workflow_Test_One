@@ -10,4 +10,4 @@ export function configure(config: FrameworkConfiguration) {
   config.singleton(WorkflowManager, WorkflowManager);
 }
 
-export {WorkflowManager};
+export let workflowManager = new WorkflowManager();
