@@ -12,7 +12,4 @@ export class WorkflowContainer {
   constructor(private singletonWorkflowManager: WorkflowManager){
     
   }
-  attached(){
-    console.log(this.singletonWorkflowManager);
-  }
 }
