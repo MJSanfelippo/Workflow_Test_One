@@ -12,6 +12,8 @@ import * as $ from "jquery";
 
 const mermaid = PLATFORM.global.mermaid;
 
+
+
 @autoinject()
 export class WorkflowAdd {
 

@@ -11,46 +11,12 @@ File: Custom Bootstrap Css File
 */
 
 //Core files
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "./../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
-
-// css dependencies to make some vendor modules work
-// not sure if this is the best place to put these imports,
-// or to just import when you're using the js - Nam
-@import '~ion-rangeslider/css/ion.rangeSlider.min';
-@import '~nestable2/dist/jquery.nestable.min';
-@import '~sweetalert2/dist/sweetalert2.min';
-
-@import '~select2/dist/css/select2.min';
-@import '~mohithg-switchery/dist/switchery.min';
-@import '~@adactive/bootstrap-tagsinput/dist/bootstrap-tagsinput';
-@import '~bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min';
-@import '~bootstrap-select/sass/bootstrap-select';
-@import '~bootstrap-select/sass/variables';
-
-@import '~bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min';
-@import '~clockpicker/dist/bootstrap-clockpicker.min';
-@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.min';
-@import '~bootstrap-daterangepicker/daterangepicker';
-
-@import '~dropzone/dist/dropzone';
-
-@import '~datatables.net-bs4/css/dataTables.bootstrap4.min';
-@import '~datatables.net-responsive-bs4/css/responsive.bootstrap4.min';
-@import '~datatables.net-buttons-bs4/css/buttons.bootstrap4.min';
-
-@import '~chart.js/dist/Chart.min';
-
-@import '~c3/c3.min';
-
-@import '~chartist/dist/chartist.min';
-
-@import '~admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2';
-
-@import '~jquery-toast-plugin/dist/jquery.toast.min';
-
 /*
   Problem: style/css/sass loader is wonky; it doesn't know how to resolve the relative urls in css files
   Easy solution: if you have a vendor module that has dependencies on other files (imgs/fonts/etc)
