@@ -1,0 +1,108 @@
+$inactive-role-color: $gray-500;
+$public-private-border: $black;
+
+// Application Break Points
+$xs-bk: map-get($grid-breakpoints, xs);
+$sm-bk: map-get($grid-breakpoints, sm);
+$md-bk: map-get($grid-breakpoints, md);
+$lg-bk: map-get($grid-breakpoints, lg);
+$xl-bk: map-get($grid-breakpoints, xl);
+// END of Application Break Points
+
+.top-section {
+
+  .role-item:hover,
+  .start-place:hover {
+    cursor: pointer;
+  }
+
+  .top-header {
+    .role-plus {
+      color: $green;
+    }
+  }
+}
+
+
+
+/* .whole-thing{
+    display:table;
+}
+.left-side{
+    background-color: blue;
+    float: none;
+    display: table-cell;
+    border: 1px solid;
+}
+.right-side {
+    background-color: red;
+    float: none;
+    display: table-cell;
+    border: 1px solid;
+} */
+
+/* .role-breathe{
+    //width: 220px;
+} */
+
+.make-me-100vhheight {
+  height: 93vh;
+}
+
+.flex-me {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+}
+
+.flex-me-1 {
+  flex: 1;
+}
+
+/* .touch-floor{
+    .col-lg-2{
+        height:100vh;
+    }
+} */
+
+.pubpri-img-border {
+  border: 3px solid $public-private-border;
+}
+
+.roles-active {
+  color: inherit;
+
+  .role-check {
+    color: $green;
+  }
+
+  .check-space {
+    display: none;
+  }
+}
+
+.roles-inactive {
+  color: $inactive-role-color;
+
+  .role-check {
+    display: none;
+  }
+
+  .check-space {
+    visibility: hidden;
+  }
+}
+
+@media screen and (min-width: $xs-bk) {
+
+  /* .calc-me{
+            //min-width: calc(attr(length)) !important; //someday :(
+        } */
+  .rmx-wid {
+    max-width: 15rem !important;
+  }
+
+  .rmn-wid {
+    min-width: 15rem !important;
+  }
+}

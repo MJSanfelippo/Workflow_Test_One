@@ -1,0 +1,175 @@
+.list-container {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+
+@media only screen and (max-width:768px) {
+  .scroll-container {
+    overflow-y: auto;
+    max-height:calc((100vh - 676px) * (.5));
+  }
+
+  @media only screen and (max-width:519px) {
+    .scroll-container {
+    overflow-y: auto;
+    max-height:calc((100vh - 706px) * (.5));
+    }
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .scroll-container {
+    max-height:calc(100vh - 750px);
+  }
+
+  .column-container {
+    padding-right:10px;
+  }
+
+  .association-container {
+    padding-left:0px;
+  }
+}
+
+.field-container {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 0px 10px;
+  font-size: 1.0em;
+  width:100%;
+  min-height:36px;
+  display: flex;
+  // height:100%;
+}
+
+.field-container label {
+  margin: 0px;
+}
+
+.field-container-small {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px 5px;
+  font-size: .9em;
+  // font-size: .7em;
+}
+
+.source-field {
+  color: white;
+  background: #666666;
+}
+
+.custom-field {
+  background: tomato; //background:#597eaa;
+  color: white;
+}
+
+.association-field {
+  background: lightgray;
+  margin-right: 1px;
+}
+
+.association-field-badge-empty {
+  padding-right: .5em;
+  padding-left: .5em;
+  border-radius: 4rem;
+  background-color: lightgray;
+  color: #212529;
+}
+
+.association-field-badge {
+  padding-right: .5em;
+  padding-left: .5em;
+  border-radius: 4rem;
+  background-color: #93c47d;
+  color: #212529;
+}
+
+.association-field-set {
+  background: #93c47d;
+  margin-right: 1px;
+}
+
+.displayName-container {
+  overflow: hidden;
+}
+
+.target-field {
+  color: white;
+  background: #597eaa;
+}
+
+.card-header-custom {
+  background: #597eaa;
+  font-size:1.1em;
+  color:white
+}
+
+.card-header-custom label {
+  font-size:1.2em;
+  color:white
+}
+
+.card-header-custom-button {
+  margin: 0 15px;
+}
+
+.card-block-custom {
+  padding:20px;
+}
+
+.column-header {
+  margin-bottom: 10px;
+}
+
+.dialog-custom-select {
+  width: auto;
+  display: inline-block;
+}
+
+.close-button {
+  border-radius: 5px;
+  color: #d9534f;
+  background: white;
+  float: right;
+  margin-left: 5px;
+  height: 28px;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.field-dropdown-menu {
+  z-index: 3;
+}
+
+.field-dropdown {
+  padding: 0.1rem .5rem;
+  // margin-left: 20px;
+}
+
+.dropdown-header {
+  font-weight: bold;
+  //font-size: medium;
+  padding-bottom:0px;
+}
+
+.dialog-displayName {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.scroll-y {
+  overflow-y:scroll;
+}
+
+.dropdown-split {
+  height: 20vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-left: 35px;
+}

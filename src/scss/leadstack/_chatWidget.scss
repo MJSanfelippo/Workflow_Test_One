@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+/* ===============
+     Chat Widget
+ =================*/
+
+ :root {
+  --ls-chat-widget-theme-color: #94C2ED;
+  --ls-chat-widget-gray: #eff4f4;
+}
+
+$black: #434343;
+$white: rgb(41, 31, 31);
+$chatbox-bg-color: var(--ls-chat-widget-theme-color);
+$chatbox-margin: 0px;
+$gray: var(--ls-chat-widget-gray);
+$green: #86BB71;
+
+#ls-chat-widget * {
+  font-family: Roboto, sans-serif;
+  user-select: none;
+}
+
+.ls-chat-widget {
+  position: absolute;
+  bottom: .5rem;
+  right: 0px;
+  // z-index: 9999999;
+  background-color: $chatbox-bg-color;
+  margin: $chatbox-margin;
+  border: none;
+  -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+  -moz-box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+  color: white;
+}
+
+.ls-chat-widget:focus {
+  outline: 0px;
+}
+
+.ls-chat-widget-closed {
+  border-radius: 40px;
+  padding: 5px 20px;
+  width: auto;
+  min-width: 10rem;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.ls-chat-scale-down {
+  transform: scale(0);
+}
+
+.ls-chat-box {
+  bottom: 10px;
+  height: 35rem;
+  margin: 0 $chatbox-margin;
+  z-index: 1000;
+  background-color: $white;
+  border-radius: 20px;
+  transition: transform .1s ease-in;
+  transform-style: preserve-3d;
+  transform: scale(0.0);
+  padding: 0px;
+  overflow: hidden;
+
+  -webkit-box-shadow: 0px 2px 17px 2px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0px 2px 17px 2px rgba(0, 0, 0, .1);
+  box-shadow: 0px 2px 17px 2px rgba(0, 0, 0, .1);
+}
+
+// this has to be here
+.ls-chat-scale-up {
+  transform: scale(1.0);
+}
+
+/* ===============
+  Widget Config 
+=================*/
+.chat-widget-bottom-right {
+  transform-origin: bottom right;
+}
+
+.chat-widget-bottom-left {
+  transform-origin: bottom left;
+}
+
+.chat-box-large {
+  height: 37rem;
+  width: 28rem;
+}
+
+.chat-box-medium {
+  height: 35rem;
+  width: 24rem;
+}
+
+.chat-box-small {
+  height: 24rem;
+  width: 18rem;
+}
+
+/* ==================
+   Custom Bootstrap
+ ===================*/
+
+ .ls-chat-card {
+  height: 100%;
+  border-style: none !important;
+}
+
+.ls-chat-card-top {
+  // background: $gray;
+  background: linear-gradient(135deg,rgb(35, 146, 236) 0%, rgb(13, 92, 156) 100%);
+  // background: linear-gradient(135deg,rgb(48, 159, 249) 0%, rgb(35, 146, 236) 100%);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.ls-pre-chat-card-top {
+  background: linear-gradient(135deg,rgb(35, 146, 236) 0%, rgb(13, 92, 156) 100%);
+  // background: linear-gradient(135deg,rgb(48, 159, 249) 0%, rgb(35, 146, 236) 100%);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  cursor: pointer;
+}
+
+.ls-chat-card-body {
+  padding: .5rem !important;
+}
+
+.ls-chat-card-footer {
+  font-size: 12px;
+  padding: .1rem .5rem !important;
+  border-top-width: 0px !important;
+  background: $gray !important;
+}
+
+.ls-chat-pl-7 {
+  padding-left: 4rem !important;
+}
+
+/* ==================
+   Messaging
+ ===================*/
+ .ls-chat-concierge-icon-header {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+}
+
+.ls-chat-concierge-icon-chat-bubble {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  margin-top: 5%;
+}
+
+.ls-chat-schedule-items {
+  font-family: Inconsolata, Courier, monospace !important;
+}
+
+.ls-chat-message-area {
+  height: 450px !important;
+  overflow-y: scroll;
+  -ms-overflow-style: none; // IE 10+
+}
+
+.ls-chat-message-area::-webkit-scrollbar {
+  display: none; // safari / chrome
+}
+
+#ls-chat-message-box:first-child {
+  margin-top: 15px;
+}
+
+.ls-chat-chat-bubble {
+  display: inline-block;
+  // border-radius: 20px 20px 20px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  word-wrap: break-word;
+  color: black;
+  max-width: 80%;
+  padding: 10px 15px;
+  line-height: 20px;
+  // margin: 0 -15px 30px -15px;
+  // margin: 0 -15px 5px -15px;
+  margin: 0 0 5px -24px;
+  user-select: text !important;
+}
+
+.ls-chat-bubble-agent {
+  background: #f9f7f7;
+  // border-radius: 20px 20px 20px 20px;
+  border-radius: 5px;
+}
+
+.ls-chat-bubble-client {
+  color: white;
+  text-align: left;
+  background: $chatbox-bg-color;
+  // border-radius: 20px 20px 20px 20px;
+  border-radius: 5px;
+}
+
+.ls-chat-mb-30 {
+  margin-bottom: 30px;
+}
+
+.chat-bubble-client::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+
+.chat-bubble-client::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
+.ls-chat-send-message-area {
+  padding: .8rem 1rem .2rem 1rem !important;
+  border-top: 1px solid #ced4da;
+}
+
+.ls-chat-send-message-area:hover {
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+
+.ls-chat-gray-border {
+  border: 1px solid #ced4da !important;
+}
+
+.ls-chat-cursor {
+  cursor: pointer !important;
+}
+
+.ls-chat-send-message-input {
+  border-width: 0 !important;
+  user-select: text !important;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  line-height: 20px;
+  width: 100%;
+  height: 100%;
+  max-height: 10rem;
+}
+
+.ls-chat-leave-a-message-input {
+  user-select: text !important;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  line-height: 20px;
+  width: 100%;
+  height: 100%;
+  max-height: 10rem;
+}
+
+.ls-chat-time-stamp {
+  // float: right;
+  font-size: 10px;
+  color: #B8BDBF;
+}
+
+.ls-chat-float-right {
+  float: right !important;
+}
+
+.ls-chat-float-left {
+  float: left !important;
+}
+
+.ls-chat-bubble-meta-data-text {
+  font-size: 12px;
+  word-wrap: break-word;
+  color: #CBBEBB;
+  max-width: 80%;
+  padding: 10px 18px;
+  line-height: 20px;
+  margin: 0 auto;
+  user-select: text !important;
+}
+
+// remove focus on select2 input
+// this is here because we did this hack
+// to fix the select2 position bug
+// span.select2-selection.select2-selection--single {
+//   outline: none;
+// }
+
+// .select2-container {
+//   margin-top: 5px;
+// }
+
+.hide-scroll-bar-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none; // IE 10+
+}
+
+.hide-scroll-bar-container::-webkit-scrollbar {
+  display: none; // safari / chrome
+}

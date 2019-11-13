@@ -1,0 +1,122 @@
+.availability-switch {
+  
+  display: inline-block;
+  width: 160px;
+  height: 34px;
+  color: $white;
+  justify-content: center;
+  // background-color: black;
+  align-content: center;
+  margin-bottom: auto;
+  bottom: 20px;
+  
+  
+  
+}
+
+.availability-switch input {display:none;}
+
+.availability-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 13px;
+  left: 0;
+  width: 160px;
+  height: 56%;
+  max-width: 160px;
+  min-width: 160px;
+  right: 0;
+  bottom: -20px;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+  color: white;
+  align-self: auto;
+}
+
+.availability-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.availability-slider.round {
+  border-radius: 34px;
+}
+
+.availability-slider.round:before {
+  border-radius: 50%;
+}
+
+.availability-switch input:checked + .availability-slider .availability-available
+{display: block;}
+
+.availability-switch input:checked + .availability-slider .availability-unavailable
+{display: none;}
+
+.availability-switch input:checked + .availability-slider {
+  background-color: #2ab934;
+}
+
+.availability-switch input:focus + .availability-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.availability-switch input:checked + .availability-slider:before {
+  -webkit-transform: translateX(125px);
+  -ms-transform: translateX(125px);
+  transform: translateX(125px);
+}
+
+.availability-available, .availability-unavailable, .availability-cooldown
+{
+  position: absolute;
+  margin: auto;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 14px;
+  font-family: Verdana, sans-serif;
+}
+
+.availability-cooldown-double
+{
+  width: 53%; // 2 digit cooldown
+}
+
+.availability-cooldown-triple
+{
+  width: 57%; // 3 digit cooldown
+}
+
+.availability-status-Available {
+  background-color: #2ab934;
+}
+
+.availability-status-Unavailable {
+  background-color: #ca2222;
+}
+
+.availability-status-Offline {
+  background-color: #ca2222;
+}
+
+.availability-status-Cooldown {
+  background-color: yellow;
+  color: black;
+}
+
+// this is so ringing doesn't change the ui
+.availability-status-RingingOrProcessingRing {
+  background-color: #2ab934;
+}
+
+.availability-status-OnCall {
+  background-color: blue;
+}

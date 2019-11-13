@@ -1,0 +1,237 @@
+$title-background-color: $primary;
+$lead-tag-color: rgba(#039cfd, 60/155);
+$agent-tag-color: rgba(#868e96, 60/155);
+$team-member-background-color: white;
+
+.team-margin-fix {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.team-display-card {
+  $border-radius-size: 5px;
+  border: 1px solid black;
+  border-radius: $border-radius-size;
+  height: 100%;
+  .team-wrapper-title {
+    border-radius: $border-radius-size - 1 $border-radius-size - 1 0px 0px;
+  }
+  .team-wrapper:last-child {
+    border-radius: 0px 0px $border-radius-size - 1 $border-radius-size - 1;
+  }
+  .team-inner-empty {
+    border-radius: 0px 0px $border-radius-size - 1 $border-radius-size - 1;
+  }
+}
+
+.team {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 5px;
+}
+
+.team-inner-auto {
+  vertical-align: text-top;
+}
+
+.team-inner-empty {
+  border: 1px solid black;
+}
+
+.team-inner-scroll {
+  vertical-align: text-top;
+  overflow-y: scroll;
+}
+
+.team-wrapper {
+  border: 1px solid black;
+  width: 270px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  background-color: $team-member-background-color;
+}
+
+.team-wrapper-saving {
+  position: relative;
+  .team-saving {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+  }
+}
+
+.team-wrapper-title {
+  @extend .team-wrapper;
+  height: 32px;
+  min-width: 270px;
+  max-width: 310px;
+  background-color: $title-background-color;
+  input {
+    padding: 3px 4px 3px 4px;
+    width: 76%;
+    // outline: 1px dashed black !important;
+    // outline-offset: -2px;
+    color: black;
+    background-color: $white;
+    height: 106%;
+    &.team-invalid-name {
+      outline-style: none !important;
+      &:focus {
+        box-shadow: inset 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+      }
+      &:not(:focus) {
+        outline: 1px solid red !important;
+        outline-offset: -1px;
+      }
+    }
+  }
+  .btn {
+    @extend .p-1;
+    background-color: inherit;
+    margin: 0px;
+    width: 12%;
+    vertical-align: top;
+    border-radius: 0px;
+  }
+  .btn-darken-hover {
+    &:hover {
+      background-color: darken($title-background-color, 15%);
+    }
+    
+  }
+  .team-title-btn {
+    @extend .p-1;
+    @extend .text-left;
+    border-radius: 0px;
+    width: 100%;
+    span {
+      margin: 0px;
+      padding: 0px;
+      background-color: inherit;
+    }
+    i {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.team-tag {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: text-top;
+  
+  width: 60px;
+  @extend .p-1;
+  color: black;
+  // font-weight: bold;
+  
+  margin-top: -1px;
+  margin-bottom: -1px;
+  border-right: 1px solid black;
+}
+
+.team-name {
+  margin-top: -1px;
+  margin-bottom: 0px;
+  display: inline-block;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  // font-weight: bold;
+  
+
+  border: 0px solid black;
+}
+
+.team-hamburger {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 2px;
+  
+  margin-right: 5px;
+}
+
+.team-title-name {
+  @extend .team-name;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.team-empty-name {
+  @extend .team-name;
+  width: 100%;
+  color: black;
+  
+  text-align: center;
+  background-color: lightgrey;
+   
+}
+
+.team-lead-tag {
+  @extend .team-tag;
+  background-color: $lead-tag-color;
+}
+
+.team-agent-tag {
+  @extend .team-tag;
+  background-color: $agent-tag-color;
+}
+
+
+.team-wrapper-title + .team-inner-scroll {
+  width: 100%;
+}
+
+#teamSearchContainer {
+  max-width: 550px;
+}
+
+#teamEditorOptions {
+  position: absolute;
+  z-index: 1000;
+
+  padding-right: .6rem;
+  width: inherit;
+  border-radius: 0px;
+  button {
+    margin: 0px;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: inherit;
+    &:hover {
+      background-color: darken($white, 10%);
+    }
+    &:active, &:focus {
+      border-color: black;
+    }
+  }
+}
+
+#teamDisplayForm {
+  .form-group {
+    @extend .mx-2;
+    margin-bottom: 0.5rem;
+    width: 270px;
+  }
+}
+
+#invalidTeamNameError {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

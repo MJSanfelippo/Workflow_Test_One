@@ -1,0 +1,250 @@
+$subtle-color: $gray-500;
+$edit-header-color: $gray-500;
+$edit-link-color: $link-color;
+$inactive-edit-link-color: $nav-link-disabled-color;
+
+$passwordStrength: $green;
+
+// Application Break Points
+$xs-bk: map-get($grid-breakpoints, xs);
+$sm-bk: map-get($grid-breakpoints, sm);
+$md-bk: map-get($grid-breakpoints, md);
+$lg-bk: map-get($grid-breakpoints, lg);
+$xl-bk: map-get($grid-breakpoints, xl);
+// END of Application Break Points
+
+
+.background-color-red {
+    background-color:rgb(99, 109, 133);
+}
+
+.content-item {
+    // padding: 0 10px !important;
+    padding: 0 10px;
+    // background-color:rgb(99, 109, 133);
+}
+
+.content-item-bordered {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.social-container {
+    min-width: 327px !important;
+}
+
+// .edit-content {
+//     max-width: 50rem !important;
+// }
+
+.edit-header {
+    font-size: 1.2rem;
+    color: $edit-header-color;
+    max-width: 14rem;
+    padding: 0 10px;
+}
+
+.profile-label {
+    margin-top:4px;
+    font-size: 1rem;
+}
+
+.edit-link{
+    color: $edit-link-color;
+    margin-top:4px;
+    padding:0 15px 0px 50px; 
+    max-height: 1.3rem;
+    &:hover{
+        cursor:pointer;
+        text-decoration: underline;
+    }
+}
+
+.edit-link.edit-inactive {
+    color: $inactive-edit-link-color;
+    &:hover{
+        cursor:inherit;
+        text-decoration: none;
+    }
+}
+
+.container-fluid-custom {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.popover-info  {
+    color: $info;
+    background-color: lighten($info, 25%) !important;
+    border-color: lighten($info, 10%) !important;
+}
+
+
+.popover-info .popover-body{
+    color: darken($info, 20%) !important;
+}
+
+
+.popover-info.bs-popover-left .arrow::before, .popover.bs-popover-auto[x-placement^="left"] .arrow::before {
+    border-left-color: lighten($info, 10%) !important;
+}
+
+.popover-info.bs-popover-left .arrow::after, .popover.bs-popover-auto[x-placement^="left"] .arrow::after {
+    border-left-color: lighten($info, 25%) !important;
+}
+
+.popover-info.bs-popover-right .arrow::before, .popover.bs-popover-auto[x-placement^="right"] .arrow::before {
+    border-right-color: lighten($info, 10%) !important;
+}
+
+.popover-info.bs-popover-right .arrow::after, .popover.bs-popover-auto[x-placement^="right"] .arrow::after {
+    border-right-color: lighten($info, 25%) !important;
+}
+
+
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+
+.cap-width{
+    margin: auto;
+    max-width: 1400px;
+}
+
+
+.progress{
+    .password-strength{
+        background-color: $passwordStrength;
+    }
+}
+.password-strength{
+    color: $passwordStrength;
+}
+
+.green-border{
+    border: 3px solid $passwordStrength;
+}
+
+.red-border{
+  border: 3px solid red;
+}
+
+.subtle-text{
+    color: $subtle-color;
+}
+
+.social-link {
+  color: $primary;
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.edit-min-width {
+  min-width: 16rem;
+}
+
+.edit-uniform-width {
+  min-width: 16rem;
+  max-width: 25rem;
+}
+
+.edit-uniform-width-2x {
+    min-width: 16rem;
+    max-width: 50rem;
+  }
+
+@media screen and (min-width: $xs-bk){
+
+    /* .calc-me{
+        //min-width: calc(attr(length)) !important; //someday :(
+    } */
+
+    .cmx-wid{
+        max-width: 45pt !important;
+    }
+    .cmx-wid{
+        min-width: 45pt !important;
+    }
+
+    .c2mx-wid{
+        max-width: 90pt !important;
+    }
+
+    .c2mn-wid{
+        min-width: 90pt !important;
+    }
+}
+
+@media screen and (max-width: $sm-bk) {
+    .edit-content {
+        // padding-top: 10px;
+        padding: 10px 0 0 0;
+        margin:0;
+    }    
+
+    .remove-padding-at-xs {
+        padding:0 !important;
+    }
+
+    .container-fluid-custom {
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 5px;
+        padding-left: 5px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: $sm-bk){    
+
+    .hmx-wid-sm{
+        //max-width: 200pt !important;
+    }
+    .hmn-wid-sm{
+        //min-width: 100pt !important;
+    }
+}
+
+@media screen and (min-width: $md-bk){
+    .hmx-wid-md{
+        //max-width: 195pt !important;
+    }
+    .hmn-wid-md{ // when given col --> this class is irrelevant
+        //min-width: 100pt !important;
+    }
+}
+
+@media screen and (min-width: $lg-bk) {
+    .edit-content {
+        max-width: $xl-bk !important;
+    }
+    .cmx-wid-lg{
+        //max-width: 45pt !important;
+    }
+    .c2mx-wid-lg{
+        //max-width: 90pt !important;
+    }
+
+    .hmx-wid-lg{
+        max-width: 220pt !important;
+    }
+    .hmn-wid-lg{ // when given col --> this class is irrelevant
+        min-width: 220pt !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        max-width: 100%;  
+    }
+
+    .wrapper {
+        padding: 70px 12px 0 12px;
+    }
+}

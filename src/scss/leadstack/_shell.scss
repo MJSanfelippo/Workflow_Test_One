@@ -1,0 +1,21 @@
+.workspaceTab {
+  background: $body-bg;
+  margin: -1.3rem -1.3rem 0 -1.3rem;
+
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    border-color: #e9ecef #e9ecef transparent;
+
+    .active {
+      height: 100%;
+    }
+
+    &:hover:not(.active) {
+      background-color: darken($body-bg, 10%);
+    }
+  }
+}

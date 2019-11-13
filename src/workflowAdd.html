@@ -1,0 +1,83 @@
+<template>
+
+  <require from="bootstrap/css/bootstrap.css"></require>
+
+  <require from="./workflowComponents/nodeViewComponents/leadNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/scheduledActionsNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/scheduleNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/sendSmsNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/sendToRoutingPolicyNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/ivrNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/delayNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/sendEmailNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/playMessageNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/keyPressNodeView"></require>
+  <require from="./workflowComponents/nodeViewComponents/hangUpNodeView"></require>
+
+  <div class="row">
+    <div class="col-lg-8 col-sm-12">
+      <div id="${mermaidId}"></div>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+      <div show.bind="!workflowManager.selectedNode || workflowManager.selectedNode.type === 0">
+        <label class="profile-label">Type of Lead</label>
+
+        <div class="btn-group btn-group-toggle mb-2" style="width: 100%;">
+          <label repeat.for="option of allLeadTypes"
+            class="btn btn-outline-primary btn-sm mr-0 ${option == selectedLeadType ? 'active' : ''}"
+            style="width: 25%;">
+            <input type="radio" name="${option}" model.bind="option" checked.bind="selectedLeadType"
+              style="position: absolute; clip: rect(0,0,0,0);pointer-events: none;">
+            ${option}
+          </label>
+        </div>
+
+        <button type="button" class="btn btn-primary mx-0" click.delegate="addLeadNode()">Update Workflow</button>
+
+      </div>
+
+      <div>
+        <lead-node-view workflow-manager.bind="workflowManager"
+          show.bind="workflowManager.selectedNode.type === 1 || workflowManager.selectedNode.type === 2 || workflowManager.selectedNode.type === 3 || workflowManager.selectedNode.type === 4"
+          selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId">
+        </lead-node-view>
+        <scheduled-actions-node-view workflow-manager.bind="workflowManager"
+          all-schedule-options.bind="allScheduleOptions" show.bind="workflowManager.selectedNode.type === 8"
+          selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></scheduled-actions-node-view>
+        <schedule-node-view workflow-manager.bind="workflowManager" all-schedule-options.bind="allScheduleOptions"
+          selected-lead-type.bind="selectedLeadType"
+          show.bind="workflowManager.selectedNode.type === 9 || workflowManager.selectedNode.type === 10"
+          node-id.bind="nodeId"></schedule-node-view>
+        <send-sms-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 7"
+          selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></send-sms-node-view>
+        <send-to-routing-policy-node-view workflow-manager.bind="workflowManager"
+          all-routing-policies.bind="allRoutingPolicyOptions" selected-lead-type.bind="selectedLeadType"
+          show.bind="workflowManager.selectedNode.type === 11" node-id.bind="nodeId"></send-to-routing-policy-node-view>
+        <ivr-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 13"
+          node-id.bind="nodeId" selected-lead-type.bind="selectedLeadType" all-messages.bind="allMessages">
+        </ivr-node-view>
+        <delay-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 5"
+          node-id.bind="nodeId" selected-lead-type.bind="selectedLeadType">
+        </delay-node-view>
+        <send-email-node-view workflow-manager.bind="workflowManager"
+          show.bind="workflowManager.selectedNode.type === 6" selected-lead-type.bind="selectedLeadType"
+          node-id.bind="nodeId"></send-email-node-view>
+        <play-message-node-view all-messages.bind="allMessages" workflow-manager.bind="workflowManager"
+          show.bind="workflowManager.selectedNode.type === 14" selected-lead-type.bind="selectedLeadType"
+          node-id.bind="nodeId"></play-message-node-view>
+        <key-press-node-view workflow-manager.bind="workflowManager"
+          show.bind="workflowManager.selectedNode.type === 15" selected-lead-type.bind="selectedLeadType"
+          node-id.bind="nodeId"></key-press-node-view>
+        <hang-up-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 16"
+          selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></hang-up-node-view>
+      </div>
+      <div repeat.for="error of workflowManager.workflow.errors">
+        ${error.message}
+      </div>
+    </div>
+  </div>
+
+  <add-page-save-cancel-button save-function.call="save()" cancel-function.call="cancel()">
+  </add-page-save-cancel-button>
+
+</template>

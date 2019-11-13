@@ -1,0 +1,30 @@
+<template>
+  <div class="row">
+    <div class="col-10">
+      Actions:
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-light" click.delegate="actionsManager.addNewAction()">
+        <i class="fa fa-plus fa-lg"></i>
+      </button>
+    </div>
+  </div>
+  <div repeat.for="action of actionsManager.allActions" class="row" show.bind="!actionsManager.allActions[$index].toBeRemoved">
+    <div class="col-10">
+      <select class="form-control pb-1" value.bind="actionsManager.allActions[$index].chosenActionIcon" change.delegate="actionsManager.updateArray(actionsManager.allActions[$index], $index)"
+        style="font-family:'FontAwesome'">
+        <!-- this innerhtml.one-time thing is a hack so it properly displays the font awesome icon along with the name of the action -->
+        <!-- talk to Michael Sanfelippo if confused, written 1/25/2019 -->
+        <option repeat.for="option of actionsManager.allActions[$index].allActionIconOptions" model.bind="option" innerhtml.one-time="option.getActionNameAndIconHex()"></option>
+      </select>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-light" click.delegate="actionsManager.removeAction(actionsManager.allActions[$index], $index)">
+        <i class="fa fa-minus fa-lg"></i>
+      </button>
+    </div>
+  </div>
+  <div if.bind="tooManyScheduledActionsError" class="invalid-feedback d-block">You can only have 1 scheduled actions.</div>
+  <div if.bind="tooManyRoutingPoliciesError" class="invalid-feedback d-block">You can only have 1 routing policy.</div>
+  <div if.bind="tooManyIvrsError" class="invalid-feedback d-block">You can only have 1 IVR.</div>
+</template>

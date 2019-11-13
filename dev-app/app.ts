@@ -1,3 +1,4 @@
+import 'bootstrap';
 export class App {
   public message: string = 'from Aurelia!';
 

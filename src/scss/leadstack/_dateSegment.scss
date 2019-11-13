@@ -1,0 +1,173 @@
+// Application Break Points
+$xs-bk: map-get($grid-breakpoints, xs);
+$sm-bk: map-get($grid-breakpoints, sm);
+$md-bk: map-get($grid-breakpoints, md);
+$lg-bk: map-get($grid-breakpoints, lg);
+$xl-bk: map-get($grid-breakpoints, xl);
+// END of Application Break Points
+
+.inner-content-button {
+    padding: 0.188rem  0.470rem;
+    border: 1px solid #cccccc;
+}
+
+.calendar-button {
+    padding: 0.313rem 0.595rem;
+    border: 1px solid #cccccc;
+    // border: 1px solid #111;
+}
+
+.segment-top-border {
+    padding-top:10px;
+    margin-top: 10px !important;
+    border-top: 2px solid #cccccc;
+}
+
+.tier-top-border {
+    padding-top:10px;
+    margin-top: 10px !important;
+    border-top: 1px solid #cccccc;
+}
+
+
+.middle-column-bordered {
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid #cccccc;
+    background-color:white;
+    padding: 10px 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: .4rem;
+}
+
+.date-segment-bordered {
+    // border-radius: 6px 6px 6px 6px;
+    border: 1px solid #cccccc;
+    // background-color: #fbfbfb;
+    padding: 10px 0px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 1.5rem;
+}
+
+.cost-top-border {
+    padding-top:10px !important;
+    margin-top: 10px !important;
+    border-top: 1px solid #cfcfcf;
+}
+
+.date-segment-hr {
+    // border: 1px solid #e2e3e6;
+    border-bottom: 2px solid #cccccc;
+    margin: 1.5rem 0;
+    // margin-bottom: 20px;
+}
+
+.cost-edit {
+    padding-top: 12px;
+}
+
+.cost-view-bordered {
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid #cccccc;
+    background-color:white;
+    padding: 10px 0px;
+    margin-left: 10px ;
+    margin-right: 10px ;
+    margin-bottom: .4rem;
+}
+
+@media screen and (min-width: $sm-bk) {
+    .amount-input {
+        min-width: 5.818375rem
+    }
+}
+
+@media screen and (min-width: $md-bk) {
+
+    .first-button-group {
+        margin-top: 2rem;
+    }
+}
+
+
+@media screen and (min-width: $lg-bk) {
+    .date-segment-edit-button-padding {
+        margin-left:43.1562px !important;
+        // padding-left:5.688rem !important;
+    }
+
+    .date-segment-button-padding {
+        // padding-left:89.97px !important;
+        margin-left: 99.97px !important;
+        
+        // padding-left:5.688rem !important;
+    }
+
+    .calendar-button-group {
+        // margin-top: 1.9375rem;
+        margin-top: 2rem;
+    }
+}
+
+
+@media screen and (max-width: $sm-bk) {
+    // .middle-column-bordered {
+    //     border-radius: 6px 6px 6px 6px;
+    //     border: 1px solid #cfcfcf;
+    //     margin: 1rem 5px;
+    //     // padding-top:1rem;
+    //     // margin-bottom:1rem;
+    // }
+
+
+
+
+    .col-6-at-xs {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: $md-bk){
+
+    .remove-padding-at-sm {
+        padding:0 !important;
+    }
+
+    .ammount-container {
+        margin-top:1rem;
+    }
+
+    .col-6-at-md {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+
+@media screen and (max-width: $lg-bk){
+
+    .remove-padding-at-md {
+        padding: 0 !important;
+    }
+
+    .middle-column-bordered {
+        border-radius: 6px 6px 6px 6px;
+        border: 1px solid #cfcfcf;
+        padding: 10px 0px;
+        margin: 0 10px;
+    }
+
+    .date-segment-hr {
+        // border: 1px solid #e2e3e6;
+        border-bottom: 3px solid #cfcfcf;
+        margin: 1.5rem 0;
+    }
+}

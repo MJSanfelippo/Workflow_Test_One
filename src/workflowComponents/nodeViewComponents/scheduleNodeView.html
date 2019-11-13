@@ -1,0 +1,29 @@
+<template>
+
+  <require from="../sharedComponents/allActions"></require>
+
+
+  <div class="border border-dark p-4">
+    <div class="row">
+      <div class="col-8">
+        <h4>${node.title}</h4>
+      </div>
+      <div class="col-4">
+        <label class="switch mb-0">
+          <input type="checkbox" checked.bind="node.disabled">
+          <span class="slider round"></span>
+        </label>
+        <span>&nbsp;Disabled</span>
+        <i class="fa fa-times fa-lg float-right" style="cursor:pointer;" click.delegate="workflowManager.resetSelectedNode()"></i>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <label class="profile-label">Choose what to do if a lead comes in during this schedule</label>
+    </div>
+
+    <all-actions workflow-manager.bind="workflowManager" actions-manager.bind="actionsManager" node-id.bind="nodeId"
+      selected-lead-type.bind="selectedLeadType"></all-actions>
+    <button type="button" class="btn btn-primary mx-0 mt-1" click.delegate="updateWorkflow()">Update Workflow</button>
+  </div>
+</template>

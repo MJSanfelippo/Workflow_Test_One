@@ -1,0 +1,58 @@
+<template>
+
+  <div class="border border-dark p-4">
+    <div class="row">
+      <div class="col-8">
+        <h4>Scheduled Actions</h4>
+      </div>
+      <div class="col-4">
+        <label class="switch mb-0">
+          <input type="checkbox" checked.bind="node.disabled">
+          <span class="slider round"></span>
+        </label>
+        <span>&nbsp;Disabled</span>
+        <i class="fa fa-times fa-lg float-right" style="cursor:pointer;" click.delegate="workflowManager.resetSelectedNode()"></i>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <label class="profile-label">
+        Choose your schedules
+      </label>
+    </div>
+
+    <div class="row">
+      <div class="col-1">
+
+      </div>
+      <div class="col-9">
+        Schedules:
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-light" click.delegate="addNewSchedule()">
+          <i class="fa fa-plus fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row" repeat.for="schedule of scheduledActionsData.schedules" show.bind="!scheduledActionsData.schedules[$index].toBeRemoved">
+      <div class="col-1 workflow-internet-scheduled-actions-center-text">
+        ${$index + 1}.
+      </div>
+      <div class="col-9">
+        <select class="form-control pb-1" value.bind="scheduledActionsData.schedules[$index].schedule" change.delegate="updateSchedules(scheduledActionsData.schedules[$index], $index)">
+          <option repeat.for="option of scheduledActionsData.schedules[$index].allScheduleOptions" model.bind="option">${option.name}</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-light" click.delegate="removeSchedule(scheduledActionsData.schedules[$index], $index)">
+          <i class="fa fa-minus fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div if.bind="duplicatesError" class="invalid-feedback d-block">No duplicates</div>
+    <button type="button" class="btn btn-primary mx-0 mt-1" if.bind="scheduledActionsData.schedules.length > 0"
+      click.delegate="updateWorkflow()">Update
+      Workflow</button>
+  </div>
+
+</template>
