@@ -1,6 +1,6 @@
 import {bindable} from 'aurelia-framework';
 
-export class HelloWorld {
+export class WorkflowContainer {
   @bindable public message: string = '';
   @bindable workflowId: string;
 
