@@ -52,9 +52,9 @@
         <send-to-routing-policy-node-view workflow-manager.bind="workflowManager"
           all-routing-policies.bind="allRoutingPolicyOptions" selected-lead-type.bind="selectedLeadType"
           show.bind="workflowManager.selectedNode.type === 11" node-id.bind="nodeId"></send-to-routing-policy-node-view>
-        <ivr-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 13"
+        <!-- <ivr-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 13"
           node-id.bind="nodeId" selected-lead-type.bind="selectedLeadType" all-messages.bind="allMessages">
-        </ivr-node-view>
+        </ivr-node-view> -->
         <delay-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 5"
           node-id.bind="nodeId" selected-lead-type.bind="selectedLeadType">
         </delay-node-view>
@@ -70,7 +70,10 @@
         <hang-up-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 16"
           selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></hang-up-node-view>
 
-          <slot name="custom"></slot>
+          <div show.bind="workflowManager.selectedNode.type === 13">
+
+            <slot name="custom"></slot>
+          </div>
       </div>
       <div repeat.for="error of workflowManager.workflow.errors">
         ${error.message}
