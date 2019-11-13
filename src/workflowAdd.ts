@@ -1,5 +1,5 @@
 
-import { autoinject, observable, LogManager } from "aurelia-framework";
+import { autoinject, observable, LogManager, bindable } from "aurelia-framework";
 import { WorkflowManager, WorkflowType } from "./managers/workflowManager";
 import { PLATFORM } from "aurelia-pal";
 import { Router } from "aurelia-router";
@@ -24,9 +24,9 @@ export class WorkflowAdd {
   private mermaidId: string;
   private _logger: Logger;
   private allLeadTypes: string[];
-  private allScheduleOptions: any[] = [];
-  private allRoutingPolicyOptions: any[] = [];
-  private allMessages: any[] = [];
+  @bindable allScheduleOptions: any[] = [];
+  @bindable allRoutingPolicyOptions: any[] = [];
+  @bindable allMessages: any[] = [];
   private nodeId: string;
   private selectedNode: WorkflowNode;
 

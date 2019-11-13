@@ -5,6 +5,7 @@ import transpile from './transpile';
 import processMarkup from './process-markup';
 import processJson from './process-json';
 import processCSS from './process-css';
+import prepareFontAwesome from './prepare-font-awesome';
 import copyFiles from './copy-files';
 import watch from './watch';
 
@@ -15,6 +16,7 @@ let build = gulp.series(
     processMarkup,
     processJson,
     processCSS,
+    prepareFontAwesome,
     copyFiles
   ),
   writeBundles
