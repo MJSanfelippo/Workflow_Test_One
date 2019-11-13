@@ -11,4 +11,4 @@ export function configure(config: FrameworkConfiguration) {
   config.singleton(WorkflowManager, WorkflowManager);
 }
 
-export let thing = Container.instance.get(WorkflowManager);
+export let AllWorkflowManager = Container.instance.get(WorkflowManager);
