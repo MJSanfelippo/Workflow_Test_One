@@ -2,7 +2,7 @@ import { WorkflowManager as OtherWorkflowManager } from "./managers/workflowMana
 
 export class WorkflowManager {
 
-  idMap: Map<string, OtherWorkflowManager>;
+  idMap: Map<string, OtherWorkflowManager>; 
 
   constructor() {
     this.idMap = new Map<string, OtherWorkflowManager>();
