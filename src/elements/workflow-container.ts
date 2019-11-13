@@ -1,5 +1,7 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, autoinject} from 'aurelia-framework';
+import { WorkflowManager } from './../WorkflowManager';
 
+@autoinject()
 export class WorkflowContainer {
   @bindable public message: string = '';
   @bindable workflowId: string;
@@ -7,7 +9,10 @@ export class WorkflowContainer {
   @bindable allMessages: any[];
   @bindable allRoutingPolicies: any[];
 
+  constructor(private singletonWorkflowManager: WorkflowManager){
+    
+  }
   attached(){
-    console.log(this.workflowId);
+    console.log(this.singletonWorkflowManager);
   }
 }

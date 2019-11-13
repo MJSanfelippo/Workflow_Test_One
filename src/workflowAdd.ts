@@ -9,6 +9,7 @@ import { Workflow } from "./workflowComponents/models/workflow";
 import { Logger } from "aurelia-logging";
 import { Utility } from "./utility";
 import * as $ from "jquery";
+import { WorkflowManager as SingletonWorkflowManager} from "./WorkflowManager";
 
 const mermaid = PLATFORM.global.mermaid;
 
@@ -30,9 +31,12 @@ export class WorkflowAdd {
   private nodeId: string;
   private selectedNode: WorkflowNode;
 
+  @bindable id: string;
+
   constructor(
     private router: Router,
     private utility: Utility,
+    private singletonWorkflowManager: SingletonWorkflowManager
   ) {
     this._logger = LogManager.getLogger("workflow-add");
     this.mermaidId = utility.generateUUID().replace(/-/g, "");
@@ -43,6 +47,7 @@ export class WorkflowAdd {
 
   detached(): void {
     PLATFORM.global[`nc${this.mermaidId}`] = undefined;
+    this.singletonWorkflowManager.removeFromList(this.id);
   }
 
   private setAllLeadTypes(): void {
@@ -110,6 +115,7 @@ export class WorkflowAdd {
     try {
       this.mermaidDiv = document.getElementById(this.mermaidId) as HTMLDivElement;
       this.workflowManager = new WorkflowManager(this.mermaidDiv);
+      this.singletonWorkflowManager.addToList(this.id, this.workflowManager);
     } catch (error) {
       this._logger.error(error);
     }
