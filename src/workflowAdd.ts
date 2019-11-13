@@ -29,10 +29,10 @@ export class WorkflowAdd {
   @bindable allScheduleOptions: any[] = [];
   @bindable allRoutingPolicyOptions: any[] = [];
   @bindable allMessages: any[] = [];
+  @bindable id: string;
   private nodeId: string;
   private selectedNode: WorkflowNode;
 
-  @bindable id: string;
 
   constructor(
     private router: Router,
@@ -125,7 +125,7 @@ export class WorkflowAdd {
     }
   }
 
-  private render(): void {
+  public render(): void {
     try {
       const dsl = this.workflowManager.workflowToMermaidDSL();
       if (mermaid.mermaidAPI.parse(dsl) === undefined) {

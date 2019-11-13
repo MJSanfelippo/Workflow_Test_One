@@ -69,6 +69,8 @@
           node-id.bind="nodeId"></key-press-node-view>
         <hang-up-node-view workflow-manager.bind="workflowManager" show.bind="workflowManager.selectedNode.type === 16"
           selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></hang-up-node-view>
+
+          <slot name="custom"></slot>
       </div>
       <div repeat.for="error of workflowManager.workflow.errors">
         ${error.message}
