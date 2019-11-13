@@ -1,4 +1,4 @@
-import { FrameworkConfiguration } from 'aurelia-framework';
+import { FrameworkConfiguration, Container } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { WorkflowManager } from './WorkflowManager';
 
@@ -11,4 +11,4 @@ export function configure(config: FrameworkConfiguration) {
   config.singleton(WorkflowManager, WorkflowManager);
 }
 
-export { WorkflowManager };
+export let thing = Container.instance.get(WorkflowManager);
