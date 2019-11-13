@@ -10,6 +10,7 @@ import { Logger } from "aurelia-logging";
 import { Utility } from "./utility";
 import * as $ from "jquery";
 import { WorkflowManager as SingletonWorkflowManager} from "./WorkflowManager";
+import { EventAggregator } from "aurelia-event-aggregator";
 
 const mermaid = PLATFORM.global.mermaid;
 
@@ -36,13 +37,15 @@ export class WorkflowAdd {
   constructor(
     private router: Router,
     private utility: Utility,
-    private singletonWorkflowManager: SingletonWorkflowManager
+    private singletonWorkflowManager: SingletonWorkflowManager,
+    private ea: EventAggregator
   ) {
     this._logger = LogManager.getLogger("workflow-add");
     this.mermaidId = utility.generateUUID().replace(/-/g, "");
     this.initializeMermaid();
     PLATFORM.global[`nc${this.mermaidId}`] = this.nodeClicked;
     this.setAllLeadTypes();
+    
   }
 
   detached(): void {
@@ -104,6 +107,7 @@ export class WorkflowAdd {
   // NOTE: Use an arrow function to preseve the meaning of "this". This way, you do not need to reference this view-model by adding a global "me" property to the window
   private nodeClicked = (nodeId: string): void => {
     const node: WorkflowNode = this.workflowManager.getNodeById(nodeId);
+    this.ea.publish('my-test-ea', nodeId);
     this.selectedNode = node;
     this.workflowManager.selectedNode = node;
     this.workflowManager.selectedNodeId = nodeId;

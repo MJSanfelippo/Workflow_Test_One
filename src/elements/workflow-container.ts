@@ -1,4 +1,4 @@
-import {bindable, autoinject} from 'aurelia-framework';
+import {bindable, autoinject, useShadowDOM} from 'aurelia-framework';
 import { WorkflowManager } from './../WorkflowManager';
 
 @autoinject()
