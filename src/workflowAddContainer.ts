@@ -34,9 +34,6 @@ export class WorkflowAddContainer {
   private selectedNode: WorkflowNode;
 
 
-  @bindable myObj: any;
-
-
   constructor(
     private router: Router,
     private utility: Utility,

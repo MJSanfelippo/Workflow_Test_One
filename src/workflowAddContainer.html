@@ -72,9 +72,8 @@
 
           <div show.bind="workflowManager.selectedNode.type === 13">
             <slot name="custom">
-              awer
+              Default
             </slot>
-            <compose view-model.bind="obj.viewModel" model.bind="obj.model" view="${obj.view}"></compose>
           </div>
       </div>
       <div repeat.for="error of workflowManager.workflow.errors">
