@@ -71,8 +71,10 @@
           selected-lead-type.bind="selectedLeadType" node-id.bind="nodeId"></hang-up-node-view>
 
           <div show.bind="workflowManager.selectedNode.type === 13">
-
-            <slot name="custom"></slot>
+            <slot name="custom">
+              awer
+            </slot>
+            <compose view-model.bind="obj.viewModel" model.bind="obj.model" view="${obj.view}"></compose>
           </div>
       </div>
       <div repeat.for="error of workflowManager.workflow.errors">
